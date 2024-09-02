@@ -6,6 +6,8 @@ const { Todo } = require("../models/Todo");
  */
 const createTodo = async (req, res) => {
   try {
+    console.log(req.body);
+
     const todo = req.body;
 
     const date = new Date().toLocaleString("en-IN");

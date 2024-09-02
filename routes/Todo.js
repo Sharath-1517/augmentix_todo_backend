@@ -7,14 +7,12 @@ const {
   updateTodo,
 } = require("../controller/Todo");
 
-router.param("todoId", (req, res, next, todoId) => {});
+router.get("/todos/", getTodos);
 
-router.get("/todo/todos", getTodos);
+router.post("/create/", createTodo);
 
-router.post("/todo/create", createTodo);
+router.post("/delete/", deleteTodo);
 
-router.post("/todo/delete/", deleteTodo);
-
-router.put("/todo/update/", updateTodo);
+router.put("/update/", updateTodo);
 
 module.exports = router;

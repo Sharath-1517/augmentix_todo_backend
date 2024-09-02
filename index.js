@@ -1,7 +1,7 @@
 const dotenv = require("dotenv").config();
-const db = require("./db");
+const db = require("../db");
 const express = require("express");
-const routes = require("./routes/Todo");
+const routes = require("../routes/Todo");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
@@ -9,7 +9,13 @@ const app = express();
 
 const port = process.env.PORT || 5050;
 
-app.use(cors({ origin: ["https://augmentix-todo-frontend.vercel.app/"] }));
+const corsConfig = {
+  origin: "*",
+  credential: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+};
+app.use(cors(corsConfig));
+app.options("*", cors(corsConfig));
 app.use(bodyParser.json({ extended: true }));
 const whitelist = ["*"];
 

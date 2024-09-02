@@ -1,0 +1,9 @@
+{
+  "watch": [
+    "./server.js",
+    "./routes/*",
+    "./controller/*",
+    "./models/*",
+    "./db.js"
+  ]
+}
